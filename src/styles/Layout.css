@@ -1,0 +1,136 @@
+/* Loading Bar Container */
+.loading-bar-container {
+  position: relative;
+  height: 6px; /* Slightly thicker bar */
+  width: 100%; /* Full width beneath the header */
+  background-color: rgba(0, 0, 0, 0.2); /* Dim background for the bar */
+  overflow: hidden;
+  margin-bottom: 1rem; /* Spacing below the header */
+}
+
+/* Loading Bar Progress */
+.loading-bar {
+  height: 100%;
+  width: 0; /* Start with 0% progress */
+  background: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff);
+  background-size: 300% 100%;
+  animation: neon-bar-gradient 1.5s infinite linear; /* Neon animation */
+  transition: width 0.3s ease-in-out; /* Smooth progress bar transition */
+  border-radius: 3px; /* Rounded corners for the bar */
+}
+
+/* Neon Gradient Animation */
+@keyframes neon-bar-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+/* style for table */
+/* Table container with fixed height and scroll */
+.table-container {
+  max-height: 280px; /* Adjusted height for 7 rows */
+  overflow-y: auto; /* Enable vertical scrolling for the table body */
+  overflow-x: auto; /* Enable horizontal scrolling for mobile view */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+/* Table styles */
+.table {
+  width: 100%;
+  margin-bottom: 0;
+  border-collapse: collapse;
+  text-align: left;
+  table-layout: auto; /* Default layout for flexibility */
+}
+
+/* Sticky table header */
+.table thead th {
+  position: sticky;
+  top: 0;
+  background-color: #f1f1f1; /* Soft background color for the header */
+  color: #444; /* Slightly darker color for better contrast */
+  font-weight: 600;
+  padding: 8px; /* Reduced padding for smaller screens */
+  border-bottom: 2px solid #ddd; /* Subtle border for separation */
+  z-index: 2;
+  text-align: left; /* Align text for readability */
+}
+
+/* Table rows styling */
+.table tbody tr {
+  border-bottom: 1px solid #eee; /* Light border between rows */
+  transition: background-color 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+.table tbody tr:last-child {
+  border-bottom: none; /* Remove border for the last row */
+}
+
+.table tbody td {
+  padding: 8px; /* Reduced padding for mobile */
+  color: #333;
+  overflow: hidden; /* Prevent text overflow */
+  text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+  white-space: nowrap; /* Prevent wrapping by default */
+}
+
+/* Scrollable cell for long text */
+.table tbody td.scrollable-cell {
+  white-space: normal; /* Allow wrapping inside scrollable cells */
+  max-height: 60px; /* Adjust for small vertical scroll */
+  overflow-y: auto; /* Enable vertical scrolling for long content */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Action buttons wrapping for mobile */
+.table tbody td.actions {
+  display: flex;
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+  gap: 5px;
+}
+
+.table tbody td.actions button {
+  flex: 1 1 auto; /* Ensure buttons take equal space */
+  margin-bottom: 5px; /* Add spacing between buttons in wrap mode */
+}
+
+/* Hover effect for rows */
+.table tbody tr:hover {
+  background-color: #f0f0f0; /* Light gray hover effect */
+}
+
+/* Custom scrollbar for the table container */
+.table-container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px; /* Added height for horizontal scrollbars */
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .table thead th,
+  .table tbody td {
+    font-size: 12px; /* Reduce font size for smaller screens */
+  }
+
+  .table tbody td {
+    padding: 6px; /* Reduced padding for better fit */
+  }
+
+  .table-container {
+    overflow-x: auto; /* Enable horizontal scrolling for small screens */
+  }
+}
